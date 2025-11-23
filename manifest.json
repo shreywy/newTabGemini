@@ -1,21 +1,32 @@
 {
   "manifest_version": 2,
   "name": "New Tab | Gemini Start Page",
-  "version": "1.0",
-  "description": "A Gemini-integrated start page with pinned sites on the side.",
+  "version": "1.1",
+  "description": "A simple Gemini-integrated start page including pinned sites",
   "permissions": [
     "storage"
   ],
+  "icons": {
+    "48": "icon.png",
+    "96": "icon.png"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
   "chrome_settings_overrides": {
     "homepage": "index.html"
   },
-  "content_security_policy": "script-src 'self' https://cdn.tailwindcss.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; object-src 'self'",
+  "content_security_policy": "script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'",
   "browser_specific_settings": {
     "gecko": {
-      "id": "newtab@local"
+      "id": "newtab@local",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ],
+        "optional": []
+      }
     }
   }
 }

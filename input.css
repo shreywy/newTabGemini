@@ -1,3 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Custom Theme Styles --- */
+:root {
+    --bg-primary: #0a0b10;
+    --bg-secondary: #242634;
+    --glass-border: rgba(144, 202, 249, 0.2);
+    --text-color: #e0e7ff;
+    --accent-primary: #4f46e5;
+    --chat-user-bg: rgba(79, 70, 229, 0.5);
+    --chat-gemini-bg: rgba(36, 38, 52, 0.5);
+}
+
 /* Custom Dark Theme Styles */
 body { 
     font-family: 'Inter', sans-serif; 
