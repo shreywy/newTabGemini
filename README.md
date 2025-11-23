@@ -1,7 +1,7 @@
 # Gemini New Tab ✦
 
 [![Firefox Add-on](https://img.shields.io/badge/Get_it_on-Firefox_Add--ons-FF7139?style=for-the-badge&logo=firefox-browser)](https://addons.mozilla.org/en-US/firefox/addon/new-tab-gemini-start-page/)
-* May be pending approval.
+<sub>Firefox store approval pending (as of Nov 22 2025).</sub>
 
 ![Banner](img/banner.png)
 
@@ -34,6 +34,7 @@
 ### Option 1: Firefox Add-ons Store (Recommended)
 The easiest way to install is via the official Mozilla store:
 [**Download for Firefox (pending extension approval)**](https://addons.mozilla.org/en-US/firefox/addon/new-tab-gemini-start-page/)
+OR
 [**Download Directly Now!**](https://addons.mozilla.org/firefox/downloads/file/4625839/dac4913e45f6476a99b2-1.0.xpi)
 
 
