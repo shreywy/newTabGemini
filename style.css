@@ -1,0 +1,220 @@
+/* Custom Dark Theme Styles */
+body { 
+    font-family: 'Inter', sans-serif; 
+    /* UPDATED: Use CSS variables */
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    color: var(--text-color); /* Light text color */
+}
+
+/* Apply blur and translucent dark background to the main panels */
+.glass-panel {
+    /* UPDATED: Use CSS variables */
+    background-color: color-mix(in srgb, var(--bg-secondary) 50%, transparent); 
+    backdrop-filter: blur(12px); /* Consistent blur */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border); 
+}
+
+/* Styling for the individual list items (Shortcuts) */
+.shortcut-tile {
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out; 
+    display: flex;
+    align-items: center;
+    padding: 0.75rem; 
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+}
+.shortcut-tile:hover { 
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Edit Mode Styles */
+.edit-active {
+    /* UPDATED: Use accent variable */
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 70%, transparent) !important; 
+    border-color: color-mix(in srgb, var(--accent-primary) 40%, transparent) !important;
+}
+.shortcut-tile.edit-active:hover {
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent); 
+}
+
+/* Full Glass Effect for Tile Icon */
+.tile-icon-display {
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+/* Inward white glow for icon on tile hover (subtle in list mode) */
+.shortcut-tile:hover .tile-icon-display {
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.2); 
+}
+
+/* Custom scrollbar styling */
+#chat-output, #shortcuts-list { 
+    overflow-y: auto; 
+    scroll-behavior: smooth;
+    /* Use CSS variables for scrollbar */
+    scrollbar-color: var(--text-color) var(--bg-primary); 
+    scrollbar-width: thin; 
+}
+/* WebKit (Chrome, Safari) scrollbar styling */
+#chat-output::-webkit-scrollbar, #shortcuts-list::-webkit-scrollbar {
+    width: 8px;
+}
+#chat-output::-webkit-scrollbar-track, #shortcuts-list::-webkit-scrollbar-track {
+    background: var(--bg-primary); 
+}
+#chat-output::-webkit-scrollbar-thumb, #shortcuts-list::-webkit-scrollbar-thumb {
+    background-color: var(--text-color); 
+    border-radius: 20px;
+    border: 2px solid var(--bg-primary); 
+}
+/* END SCROLLBAR STYLING */
+
+
+/* Modal specific styling */
+.modal { z-index: 1000; }
+.modal-overlay { background-color: rgba(0, 0, 0, 0.7); }
+
+/* Tile Name Styling */
+.tile-name {
+    font-size: 1rem;
+    line-height: 1.2; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0.75rem;
+    color: var(--text-color); 
+}
+
+/* Styling for translucent buttons in the footer */
+.translucent-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+.translucent-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Tailwind Overrides for dynamic colors using variables */
+.bg-indigo-700\/50 {
+    background-color: var(--chat-user-bg);
+}
+.hover\:bg-indigo-600\/60:hover {
+    background-color: color-mix(in srgb, var(--accent-primary) 60%, transparent);
+}
+.focus\:ring-indigo-400:focus {
+    --tw-ring-color: var(--accent-primary);
+}
+.focus\:border-indigo-400:focus {
+    border-color: var(--accent-primary);
+}
+.text-indigo-400 {
+    color: var(--accent-primary); 
+}
+.text-indigo-300 {
+    color: color-mix(in srgb, var(--accent-primary) 80%, var(--text-color));
+}
+.bg-indigo-900\/10 {
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+}
+.border-indigo-700\/50 {
+    border-color: color-mix(in srgb, var(--accent-primary) 50%, transparent);
+}
+/* User Chat Bubble color (Primary) */
+.bg-indigo-700\/50.text-white {
+    background-color: var(--chat-user-bg);
+}
+
+/* Gemini/System Chat Bubble color (Secondary) */
+.bg-gray-800\/50.text-gray-100 {
+    background-color: var(--chat-gemini-bg);
+}
+
+/* Make the footer always visible when in edit mode */
+.controls-visible {
+    opacity: 1 !important;
+}
+
+/* Markdown Specific Styling for inside chat bubbles */
+.chat-output p strong {
+    font-weight: 700;
+}
+.chat-output p em {
+    font-style: italic;
+}
+/* Custom list styling for Markdown * lists */
+.chat-output ul {
+    list-style: disc;
+    margin-left: 1.5em;
+    padding-left: 0;
+    margin-top: 0.5em; /* Space lists from previous content */
+    margin-bottom: 0.5em;
+}
+.chat-output li {
+    margin-top: 0.2em;
+}
+/* Ensure the p tag is not wrapping lists, only text, to avoid spacing issues */
+.chat-output p:empty {
+    margin: 0;
+    padding: 0;
+}
+
+/* 💡 NEW: Styling for the glass input field */
+.glass-input {
+    background-color: color-mix(in srgb, var(--bg-primary) 70%, transparent); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    border-color: var(--glass-border);
+}
+
+/* Fix: Change the background of the input when it receives focus to ensure readability */
+.glass-input:focus {
+    background-color: color-mix(in srgb, var(--bg-primary) 80%, transparent);
+}
+
+/* 💡 NEW: Styling for blockquote */
+.chat-output blockquote {
+    border-left: 4px solid var(--accent-primary);
+    padding-left: 1em;
+    margin-left: 0;
+    font-style: italic;
+    color: color-mix(in srgb, var(--text-color) 80%, transparent);
+}
+
+/* 💡 NEW: Styling for code */
+.chat-output code {
+    font-family: monospace;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for visibility */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* 💡 NEW: Styling for code block (pre) */
+.chat-output pre {
+    background-color: var(--bg-primary); 
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 0.8em 0;
+}
+.chat-output pre code {
+    display: block;
+    background: none;
+    padding: 0;
+}
+
+/* 💡 NEW: Weather Panel Styling */
+#weather-widget .weather-panel {
+    min-width: 180px;
+    border-color: color-mix(in srgb, var(--accent-primary) 30%, transparent);
+}
